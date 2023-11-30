@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Set the desired locale to avoid locale-related issues.
+
 echo 'export LC_ALL=en_US.UTF-8' >> /etc/environment
 echo 'export LANG=en_US.UTF-8' >> /etc/environment
 echo 'export LC_COLLATE=C' >> /etc/environment
