@@ -7,6 +7,8 @@
 # Degiskenleri burada ayarla.
 AWS_REGION="us-east-1"
 INSTANCE_NAME="Hard_Work"
+ROLE_NAME="Turtle"
+# IAM_ROLE_ARN=$(aws iam get-role --role-name $ROLE_NAME --output json | jq -r '.Role | .Arn')
 SECURITY_GROUP_NAME="Hard_Work"
 SECURITYGROUP_GROUP_NAME=$(aws ec2 describe-security-groups \
   --filters "Name=tag:Name,Values=$SECURITY_GROUP_NAME" \
@@ -30,6 +32,8 @@ INSTANCE_ID=$(aws ec2 describe-instances \
 LAUNCH_INSTANCE() {
   INSTANCE_ID=$(aws ec2 run-instances --image-id $LATEST_AMI_ID --instance-type t2.micro \
     --key-name $KEY_NAME --security-groups $SECURITYGROUP_GROUP_NAME \
+    --iam-instance-profile Name=$ROLE_NAME \
+    --user-data file:///Users/emirhan/Documents/Clarusway/Auto_Public_Ip_Pull/user_data.sh \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME}]" \
     --query "Instances[0].InstanceId" \
     --output text)
