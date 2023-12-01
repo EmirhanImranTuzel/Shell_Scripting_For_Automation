@@ -9,6 +9,9 @@ echo 'export LC_CTYPE=en_US.UTF-8' >> /etc/environment
 
 sudo yum update -y && sudo yum upgrade -y
 
+echo "PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[0;32m\]\h\[\e[m\]@\[\e[0;34m\]\w\[\e[m\]\$ '" >> ~/.bashrc && source ~/.bashrc
+
+
 # Install Terraform;
 
 sudo yum install -y yum-utils
