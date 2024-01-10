@@ -20,3 +20,10 @@ sudo yum -y install terraform
 
 # Install Docker;
 
+sudo amazon-linux-extras install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -a -G docker ec2-user
+newgrp docker
+curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod -v +x /usr/local/bin/docker-compose
