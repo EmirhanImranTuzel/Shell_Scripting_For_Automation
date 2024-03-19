@@ -9,7 +9,7 @@ echo 'export LC_CTYPE=en_US.UTF-8' >> /etc/environment
 
 # Customize prompt;
 
-echo "PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[0;32m\]\h\[\e[m\]@\[\e[0;34m\]\w\[\e[m\]\$ '" >> ~/.bashrc && source ~/.bashrc
+echo "PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[0;32m\]\h\[\e[m\]@\[\e[0;34m\]\w\[\e[m\]\$ '" | sudo tee -a /etc/bashrc > /dev/null
 
 # Install requirements;
 
@@ -21,3 +21,4 @@ amazon-linux-extras install docker -y
 systemctl start docker
 systemctl enable docker
 usermod -a -G docker ec2-user
+source ~/.bashrc
