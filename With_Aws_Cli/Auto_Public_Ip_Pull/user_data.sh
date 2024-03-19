@@ -7,10 +7,9 @@ echo 'export LANG=en_US.UTF-8' >> /etc/environment
 echo 'export LC_COLLATE=C' >> /etc/environment
 echo 'export LC_CTYPE=en_US.UTF-8' >> /etc/environment
 
+export "PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[0;32m\]\h\[\e[m\]@\[\e[0;34m\]\w\[\e[m\]\$ '" >> ~/.bashrc && source ~/.bashrc
+
 yum update -y && yum upgrade -y
-
-echo "PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[0;32m\]\h\[\e[m\]@\[\e[0;34m\]\w\[\e[m\]\$ '" >> ~/.bashrc && source ~/.bashrc
-
 
 # Install Terraform;
 
